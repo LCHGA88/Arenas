@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Nombre de Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="displayName"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="saveUserProfile()">Guardar</ion-button>
+
+  <ion-text *ngIf="message" color="primary">
+    <p class="ion-text-center">{{ message }}</p>
+  </ion-text>
+</ion-content>

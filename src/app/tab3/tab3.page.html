@@ -1,17 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Seleccionar Ataques</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" *ngIf="pokemon">
+  <div class="pokemon-info">
+    <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-sprite" />
+    <h2>{{ pokemon.name }}</h2>
+    <p>Nivel: {{ pokemon.level }}</p>
+    <p>HP: {{ pokemon.hp }}</p>
+  </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <ion-item *ngFor="let moveIndex of [0, 1, 2, 3]">
+      <ion-label>Movimiento {{ moveIndex + 1 }}</ion-label>
+      <ion-select
+        [(ngModel)]="selectedMoves[moveIndex]"
+        interface="popover"
+        placeholder="Seleccionar"
+      >
+        <ion-select-option *ngFor="let move of availableMoves" [value]="move">
+          {{ move }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="primary" (click)="saveMoves()">Guardar Ataques</ion-button>
 </ion-content>
+
+<ion-text *ngIf="!pokemon" color="medium">
+  <p class="ion-text-center">Cargando información del Pokémon...</p>
+</ion-text>

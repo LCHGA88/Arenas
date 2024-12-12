@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestionar Arenas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre de la Arena</ion-label>
+    <ion-input [(ngModel)]="arenaName" placeholder="Nombre de la Arena"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Contraseña de la Arena</ion-label>
+    <ion-input [(ngModel)]="arenaPassword" placeholder="Contraseña"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="createArena()">Crear Arena</ion-button>
+  <ion-button expand="block" color="secondary" (click)="searchArena()">Buscar Arena</ion-button>
+
+  <ion-card *ngIf="arenaInfo">
+    <ion-card-header>
+      <ion-card-title>{{ arenaInfo.arenaName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Contraseña:</strong> {{ arenaInfo.password }}</p>
+      <p><strong>Jugador 1:</strong> {{ arenaInfo.player1 }}</p>
+      <p><strong>Jugador 2:</strong> {{ arenaInfo.player2 || 'Vacante' }}</p>
+      <p><strong>Estado:</strong> {{ arenaInfo.status }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-text *ngIf="errorMessage" color="danger">
+    <p class="ion-text-center">{{ errorMessage }}</p>
+  </ion-text>
+
+  <ion-button *ngIf="isReady" expand="block" color="success" (click)="enterArena()">
+    Entrar a la Arena
+  </ion-button>
+</ion-content>

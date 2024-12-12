@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-img src="https://img.freepik.com/premium-photo/cute-cat-glasses-avatar-funny-pet-sunglasses-colorful-portrait-kitten-user-profile-icon-with-funny-feline-character-circle-generative-ai-illustration_127675-3802.jpg?w=360"></ion-img>
+  <ion-list>
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="usuario" label="Usuario"></ion-input>
+      </ion-item>
+    </ion-card>
+    
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="pass" label="Contraseña" type="password"></ion-input>
+      </ion-item>
+    </ion-card>
+   
+  </ion-list>
+
+  <ion-button (click)="iniciarSesion()" expand="block">Login</ion-button>
+  <ion-button (click)="registrar()" expand="block">Registrar</ion-button>
+  </ion-card>
+</ion-content>

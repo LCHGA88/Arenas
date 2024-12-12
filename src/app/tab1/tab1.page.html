@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Pokémon List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Pokémon List</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list *ngIf="pokemonList.length > 0">
+    <ion-item *ngFor="let pokemon of pokemonList">
+      <ion-thumbnail slot="start">
+        <img [src]="pokemon.image" alt="{{ pokemon.name }}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ pokemon.name }}</h2>
+      </ion-label>
+      <ion-button slot="end" color="primary" (click)="addToTeam(pokemon)">
+        Agregar al Equipo
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="pokemonList.length === 0" color="medium">
+    <p class="ion-text-center">Cargando Pokémon...</p>
+  </ion-text>
 </ion-content>

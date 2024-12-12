@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-img src="https://img.freepik.com/premium-photo/cute-cat-glasses-avatar-funny-pet-sunglasses-colorful-portrait-kitten-user-profile-icon-with-funny-feline-character-circle-generative-ai-illustration_127675-3802.jpg?w=360"></ion-img>
+    <ion-list>
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="usuario" label="Usuario" placeholder="Ingrese su correo"></ion-input>
+        </ion-item>
+      </ion-card>
+      
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="pass" label="Contraseña" type="password" placeholder="Ingrese su contraseña"></ion-input>
+        </ion-item>
+      </ion-card>
+      
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="confirmPass" label="Confirmar Contraseña" type="password" placeholder="Confirme su contraseña"></ion-input>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+    
+    <ion-button (click)="registrar()" expand="block">Registrar</ion-button>
+  </ion-card>
+</ion-content>

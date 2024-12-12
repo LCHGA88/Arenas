@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Arena de Combate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Equipo del Jugador 1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let pokemon of team1">
+        <p><strong>Nombre:</strong> {{ pokemon.name }}</p>
+        <p><strong>HP:</strong> {{ pokemon.hp }}</p>
+        <p><strong>Nivel:</strong> {{ pokemon.level }}</p>
+        <p><strong>Stats:</strong></p>
+        <ul>
+          <li *ngFor="let stat of pokemon.stats">{{ stat.name }}: {{ stat.value }}</li>
+        </ul>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Equipo del Jugador 2</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let pokemon of team2">
+        <p><strong>Nombre:</strong> {{ pokemon.name }}</p>
+        <p><strong>HP:</strong> {{ pokemon.hp }}</p>
+        <p><strong>Nivel:</strong> {{ pokemon.level }}</p>
+        <p><strong>Stats:</strong></p>
+        <ul>
+          <li *ngFor="let stat of pokemon.stats">{{ stat.name }}: {{ stat.value }}</li>
+        </ul>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

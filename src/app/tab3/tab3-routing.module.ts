@@ -6,11 +6,15 @@ const routes: Routes = [
   {
     path: '',
     component: Tab3Page,
-  }
+  },
+  {
+    path: ':id', // Ruta dinámica para manejar el ID del Pokémon
+    component: Tab3Page,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class Tab3PageRoutingModule {}
